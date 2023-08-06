@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    float speed = 10f;
+    public float healthPoints = 35;
+    public float speed = 10f;
+    public bool gameOver = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +16,10 @@ public class Mover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movePlayer();
+        if (!gameOver)
+        {
+            movePlayer();
+        }
     }
     void printInstructions() {
         Debug.Log("Welcome to Obstacle Course!");
@@ -26,5 +31,16 @@ public class Mover : MonoBehaviour
         float xVal = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         float zVal = Input.GetAxis("Vertical") * Time.deltaTime * speed;
         transform.Translate(xVal, 0, zVal);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != "Goal" && healthPoints >= 0) {
+            healthPoints--;
+            Debug.Log("Your current health is " + healthPoints);
+            if (healthPoints == 0) {
+                gameOver = true;
+                Debug.Log("Game Over");
+            }
+        }
     }
 }

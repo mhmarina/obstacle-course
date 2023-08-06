@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectHit : MonoBehaviour
 {
     public Color originalColor;
+    public Mover mover;
     private void Start()
     {
         originalColor = GetComponent<MeshRenderer>().material.color;
