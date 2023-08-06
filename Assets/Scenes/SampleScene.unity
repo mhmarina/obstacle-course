@@ -2929,7 +2929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a46d8f16beebc4c85c6c6c4a2b49cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 35
+  healthPoints: 16
   speed: 10
   gameOver: 0
 --- !u!54 &1764950204

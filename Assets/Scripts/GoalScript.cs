@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalScript : MonoBehaviour
 {
@@ -15,5 +16,6 @@ public class GoalScript : MonoBehaviour
     {
         Debug.Log("You won!");
         mover.gameOver = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

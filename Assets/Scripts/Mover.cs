@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Mover : MonoBehaviour
 {
-    public float healthPoints = 35;
+    public float healthPoints = 20;
     public float speed = 10f;
     public bool gameOver = false;
     // Start is called before the first frame update
@@ -40,6 +41,7 @@ public class Mover : MonoBehaviour
             if (healthPoints == 0) {
                 gameOver = true;
                 Debug.Log("Game Over");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }
